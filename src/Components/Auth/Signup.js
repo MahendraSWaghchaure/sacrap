@@ -125,14 +125,21 @@ const Signup = () => {
               />
             </Grid>
             <Grid item xs={12} sm={6}>
-              <TextField
-                fullWidth
-                label="Mobile"
-                variant="outlined"
-                value={mobile}
-                onChange={(e) => setMobile(e.target.value)}
-              />
-            </Grid>
+  <TextField
+    fullWidth
+    label="Mobile"
+    variant="outlined"
+    value={mobile}
+    onChange={(e) => {
+      const value = e.target.value;
+      if (value.length <= 10 && !isNaN(value)) {
+        setMobile(value);
+      }
+    }}
+    type="tel"
+    inputMode="tel"
+  />
+</Grid>
             <Grid item xs={12} sm={6}>
               <TextField
                 fullWidth
